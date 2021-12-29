@@ -1,0 +1,28 @@
+
+
+=== Tom's setup script ==
+
+Your computer has now been setup,
+  please logout or restart
+
+You now have access to:
+ - Curl         - Docker
+ - Figlet       - Google Chrome
+ - Node.js      - Vim
+ - VLC          - VSC (insiders)
+ - Wget
+
+UFW is enabled and SSH port 2222
+  is allowed
+
+Zsh has been setup with antigen,
+  p10k and a welcome message
+
+The 'fake-ssh' docker container is
+  set to run on start
+
+Please logout or restart to
+  load the changes
+
+=== Enjoy x ===
+

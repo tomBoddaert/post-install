@@ -1,0 +1,4 @@
+#!/bin/bash
+/bin/docker kill fake-ssh-container
+/bin/docker rm fake-ssh-container
+/bin/docker run -id --publish 22:22 -h $(hostname) --name fake-ssh-container fake-ssh:1.0
