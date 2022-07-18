@@ -61,7 +61,12 @@ git clone https://github.com/nvm-sh/nvm.git $NVM_DIR -q
 
 # setup ssh
 echo -e "\nSetting up ssh server (port 2222)..."
-[[ -f ./authorized_keys ]] && (echo "Found 'authorized_keys' file" && mkdir ${SUDO_USER_HOME}/.ssh 2>/dev/null && chmod 700 ${SUDO_USER_HOME}/.ssh && touch ${SUDO_USER_HOME}/.ssh/authorized_keys && chmod 600 ${SUDO_USER_HOME}/.ssh/authorized_keys && cat ./authorized_keys >> ${SUDO_USER_HOME}/.ssh/authorized_keys && chown -R $SUDO_USER ${SUDO_USER_HOME}/.ssh)
+if [[ -f ./authorized_keys ]]
+then
+    (echo "Found 'authorized_keys' file" && mkdir ${SUDO_USER_HOME}/.ssh 2>/dev/null && chmod 700 ${SUDO_USER_HOME}/.ssh && touch ${SUDO_USER_HOME}/.ssh/authorized_keys && chmod 600 ${SUDO_USER_HOME}/.ssh/authorized_keys && cat ./authorized_keys >> ${SUDO_USER_HOME}/.ssh/authorized_keys && chown -R $SUDO_USER ${SUDO_USER_HOME}/.ssh && chgrp -R $SUDO_USER ${SUDO_USER_HOME}/.ssh)
+else
+    (mkdir ${SUDO_USER_HOME}/.ssh 2>/dev/null && chmod 700 ${SUDO_USER_HOME}/.ssh && touch ${SUDO_USER_HOME}/.ssh/authorized_keys && chmod 600 ${SUDO_USER_HOME}/.ssh/authorized_keys && chown -R $SUDO_USER ${SUDO_USER_HOME}/.ssh && chgrp -R $SUDO_USER ${SUDO_USER_HOME}/.ssh)
+fi
 cp /etc/ssh/sshd_config /etc/ssh/sshd_config.default
 sed 's/^#Port 22$/Port 2222/; s/^#PasswordAuthentication yes$/PasswordAuthentication no/' /etc/ssh/sshd_config.default > /etc/ssh/sshd_config
 ufw allow 2222 1>/dev/null
