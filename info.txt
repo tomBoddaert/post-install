@@ -24,5 +24,8 @@ The 'fake-ssh' docker container is
 Please logout or restart to
   load the changes
 
+Then run ge-enable.sh to enable
+  the gnome extensions
+
 === Enjoy x ===
 
