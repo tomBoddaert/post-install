@@ -5,16 +5,23 @@
 This is my personal setup script, designed to work out of the box with Ubuntu.
 
 It will install:
+ - Caffeine
  - Curl
+ - Discord-ptb
  - Docker
  - Figlet
- - Google Chrome (Firefox will be uninstalled)
- - NVM & Node.js
- - Vim
+ - GIMP
+ - Go
+ - Google Chrome
+ - Hue lights
+ - Node.js
+ - OpenRGB
+ - Rust
+ - Steam
  - VLC
  - VSC (insiders)
+ - Vim
  - Wget
- - Zsh
 
 Zsh will be setup with antigen, some bundles and the p10k theme, which is setup as per [p10k.zsh](p10k.zsh) for most terminals and [p10k-console.zsh](p10k-console.zsh) for consoles, due to reduced font options.
 

@@ -6,10 +6,14 @@ Your computer has now been setup,
   please logout or restart
 
 You now have access to:
- - Curl         - Docker
- - Figlet       - Google Chrome
- - Node.js      - Vim
- - VLC          - VSC (insiders)
+ - Caffeine       - Curl
+ - Discord-ptb    - Docker
+ - Figlet         - GIMP
+ - Go             - Google Chrome
+ - Hue lights     - Node.js
+ - OpenRGB        - Rust
+ - Steam          - VLC
+ - VSC (insiders) - Vim
  - Wget
 
 UFW is enabled and SSH port 2222
@@ -23,6 +27,9 @@ The 'fake-ssh' docker container is
 
 Please logout or restart to
   load the changes
+
+Then run ge-enable.sh to enable
+  the gnome extensions
 
 === Enjoy x ===
 
