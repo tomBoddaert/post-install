@@ -83,6 +83,7 @@ cp ./{antigenrc,p10k.zsh,p10k-console.zsh} /etc/
 chmod 755 /etc/{antigenrc,p10k.zsh,p10k-console.zsh}
 cat ./zshconfig.zsh >> /etc/zsh/zshrc
 chsh -s /bin/zsh $SUDO_USER
+chsh -s /bin/zsh root
 
 # setup fake ssh container
 echo -e "\nSetting up 'fake ssh' container..."
