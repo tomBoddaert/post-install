@@ -95,6 +95,30 @@ chown $SUDO_USER ${SUDO_USER_HOME}/crontab.tmp
 runuser -l $SUDO_USER -c 'cd ~/Documents/docker/fake-ssh && ./build >/dev/null && crontab -l 1>/dev/null 2>/dev/null && crontab -l >~/crontab.tmp; echo "@reboot ${HOME}/Documents/docker/fake-ssh/runLimited" >> ~/crontab.tmp && crontab ~/crontab.tmp'
 rm ${SUDO_USER_HOME}/crontab.tmp
 
+# install discord-ptb
+curl -so ${SUDO_USER_HOME}/discord-ptb.deb $(curl -s https://discord.com/api/download/ptb\?platform\=linux\&format\=deb | grep -o "https:\/\/dl-ptb\.discordapp\.net\/[^\"<]*" | head -1)
+apt-get -qqy install ${SUDO_USER_HOME}/discord-ptb.deb
+rm ${SUDO_USER_HOME}/discord-ptb.deb
+
+# install steam
+curl -so ${SUDO_USER_HOME}/steam.deb $(curl -so /dev/null -D - https://cdn.akamai.steamstatic.com/client/installer/steam.deb | grep -o "https:\/\/repo\.steampowered\.com\/.*\.deb")
+apt-get -qqy install ${SUDO_USER_HOME}/steam.deb
+rm ${SUDO_USER_HOME}/steam.deb
+
+# install snap
+snap install gimp
+
+# install openrgb
+add-apt-repository ppa:thopiekar/openrgb
+apt-get -qq update
+apt-get -qqy install openrgb
+
+# install caffeine
+(cd ${SUDO_USER_HOME}/.local && git clone https://github.com/eonpatapon/gnome-shell-extension-caffeine.git -q && cd gnome-shell-extension-caffeine && make build && make install)
+
+# install hue-lights
+(cd ${SUDO_USER_HOME}/.local && git clone https://github.com/vchlum/hue-lights.git && cd hue-lights -q && ./release.sh && gnome-extensions install hue-lights@chlumskyvaclav.gmail.com.zip)
+
 # show info.txt
 echo -e "\nDONE"
 cat ./info.txt
