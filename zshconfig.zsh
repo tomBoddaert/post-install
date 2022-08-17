@@ -15,6 +15,12 @@ else
     source /etc/p10k-console.zsh
 fi
 
+# Add go to path
+export PATH=$PATH:/usr/local/go/bin
+
+# Add rust tools to path
+[ -d ~/.cargo ] && export PATH=$PATH:~/.cargo/bin
+
 # Display welcome message
 echo -e "\nLogged in as $(whoami)@$(hostname)"
 IPADDR=$(hostname -I | awk '{print $1}')
