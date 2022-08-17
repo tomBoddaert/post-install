@@ -43,7 +43,7 @@ rm ${SUDO_USER_HOME}/google-chrome-stable_current_amd64.deb
 echo "Uninstalling Firefox..."
 snap remove firefox 1>/dev/null
 
-# install zsh, vim, docker, figlet, curl, openssh-server, vsc-i, vlc
+# install zsh, vim, docker, figlet, curl, openssh-server, vsc-i, vlc, build-essential
 echo -e "\nInstalling docker, figlet, openssh-server, vim, vlc, vsc (insiders), zsh and build essential..."
 apt-get -qqy install zsh vim docker.io figlet curl openssh-server build-essential 1>/dev/null
 snap install code-insiders --classic 1>/dev/null
@@ -59,17 +59,17 @@ export NVM_DIR=/usr/local/bin/nvm
 git clone https://github.com/nvm-sh/nvm.git $NVM_DIR -q
 (cd $NVM_DIR && git checkout master -q && chmod 755 ./nvm.sh && source ./nvm.sh && nvm install --no-progress node &>/dev/null && nvm use node >/dev/null)
 
-# install go
-echo "Installing go..."
+# install Go
+echo "Installing Go..."
 curl -so ${SUDO_USER_HOME}/go.tar.gz "https://dl.google.com/go/$(curl -s "https://go.dev/dl/?mode=json" | grep -o "go[0-9\.]*\.linux-amd64\.tar\.gz" | head -1)"
 tar -xf ${SUDO_USER_HOME}/go.tar.gz -C /usr/local/
 
 # install rust
-echo "Installing rust..."
+echo "Installing Rust..."
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
 # install discord-ptb
-echo "Installing discord-ptb..."
+echo "Installing Discord-ptb..."
 curl -so ${SUDO_USER_HOME}/discord-ptb.deb $(curl -s https://discord.com/api/download/ptb\?platform\=linux\&format\=deb | grep -o "https:\/\/dl-ptb\.discordapp\.net\/[^\"<]*" | head -1)
 apt-get -qqy install ${SUDO_USER_HOME}/discord-ptb.deb
 rm ${SUDO_USER_HOME}/discord-ptb.deb
@@ -91,11 +91,11 @@ apt-get -qq update
 apt-get -qqy install openrgb
 
 # install caffeine
-echo "Installing caffeine..."
+echo "Installing Caffeine..."
 (cd ${SUDO_USER_HOME}/.local && git clone https://github.com/eonpatapon/gnome-shell-extension-caffeine.git -q && cd gnome-shell-extension-caffeine && make build && make install)
 
 # install hue-lights
-echo "Installing hue-lights..."
+echo "Installing Hue-lights..."
 (cd ${SUDO_USER_HOME}/.local && git clone https://github.com/vchlum/hue-lights.git && cd hue-lights -q && ./release.sh && gnome-extensions install hue-lights@chlumskyvaclav.gmail.com.zip)
 
 # setup ssh
